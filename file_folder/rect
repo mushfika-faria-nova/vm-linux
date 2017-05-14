@@ -1,0 +1,13 @@
+#!/bin/bash
+
+VAR1=4
+VAR2=3
+
+echo "surface of rectangle: "
+echo 
+let VAR3="$VAR1*$VAR2"
+
+echo $VAR3
+
+
+

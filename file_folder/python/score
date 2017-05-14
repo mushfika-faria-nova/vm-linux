@@ -1,0 +1,12 @@
+x =float( input('enter score: \n'))
+try:
+    if 0 < x and x < 10.0:
+        if x>9:
+            print('9')
+        elif x <5:
+            print('f')
+
+    else:
+        print('bad score1')
+except:
+    print('bad score')

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>JavaScript Loops</h1>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	
+</head>
+<body>
+<p id="demo"></p>
+
+<input type="file" id="fileinput" multiple="multiple" />
+<section>
+  
+</section>
+
+</body>
+
+<script>
+$(document).ready(function(){  
+
+  function readMultipleFiles(evt) {
+    //Retrieve all the files from the FileList object
+    var files = evt.target.files; 
+
+    if (files) {
+        for (var i=0, f; f=files[i]; i++) {
+              var r = new FileReader();
+            r.onload = (function(f) {
+                return function(e) {
+                   var the_url = e.target.result;
+		    
+                    $('section').append("<img src='" + the_url + "' width='79' height='79' />");
+                    
+                };
+            })(f);
+              r.readAsDataURL(f);
+
+        }   
+    } else {
+          alert("Failed to load files"); 
+    }
+  }
+
+  document.getElementById('fileinput').addEventListener('change', readMultipleFiles, false);
+
+});
+</script>
+</html>
+

@@ -1,0 +1,15 @@
+import csv
+dictionaries = [{'age': '30', 'name': 'John', 'last_name': 'Doe'}, {'age': '30', 'name': 'Jane', 'last_name': 'Doe'}]
+
+with open('dict.csv','w+') as csv_file:
+    headers=[k for k in dictionaries[0]]
+    
+    writer=csv.DictWriter(csv_file,fieldnames=headers)
+    writer.writeheader()    
+    for d in dictionaries:
+        writer.writerow(d)
+
+with open('dict.csv','r+') as csv_file:
+    reader=csv.DictReader(csv_file)
+    print (str([row for row in reader]))
+
